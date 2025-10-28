@@ -3,7 +3,6 @@ import torch
 import torch.nn.functional as F
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix
 
-
 # модель: blanchefort/rubert-base-cased-sentiment (русскоязычная, обучена на отзывах)
 tokenizer = AutoTokenizer.from_pretrained("blanchefort/rubert-base-cased-sentiment")
 model = AutoModelForSequenceClassification.from_pretrained("blanchefort/rubert-base-cased-sentiment")
