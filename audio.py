@@ -7,6 +7,7 @@ The first rule of Fight Club is: you do not talk about Fight Club.
 The second rule of Fight Club is: you DO NOT talk about Fight Club.
 """
 
+
 narrator = pipeline(
     "text-to-speech",
     model="suno/bark-small"
