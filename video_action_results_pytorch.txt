@@ -1,0 +1,8 @@
+предсказанное действие (топ-1): dancing ballet, вероятность: 0.42
+
+топ-5 возможных действий:
+dancing ballet: 0.42
+tai chi: 0.40
+yoga: 0.07
+stretching arm: 0.01
+stretching leg: 0.01
