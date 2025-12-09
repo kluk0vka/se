@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>AI-Agent</title>
+</head>
+<body>
+  <h2>Введи текст</h2>
+  <textarea id="t" rows="4" cols="60"></textarea><br>
+  <button onclick="go()">Отправить</button>
+  <pre id="r"></pre>
+
+<script>
+async function go(){
+  const res = await fetch("http://127.0.0.1:8000/process",{
+     method:"POST",
+     headers:{"Content-Type":"application/json"},
+     body: JSON.stringify({text: document.getElementById("t").value})
+  });
+  document.getElementById("r").textContent = (await res.json()).result;
+}
+</script>
+</body>
+</html>
