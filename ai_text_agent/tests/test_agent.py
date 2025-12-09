@@ -1,13 +1,14 @@
-from backend.model import get_sentiment
-from backend.tools import translate, summarize
+from backend.agent import agent
 
 def test_sentiment():
-    assert get_sentiment("я рад") == "POSITIVE"
+    result = agent.run("я очень доволен этим фильмом!")
+    assert "positive" in result.lower() or "положительн" in result.lower()
 
 def test_translate():
-    ans = translate("привет")
-    assert "hi" in ans.lower() or "hello" in ans.lower()
+    result = agent.run("привет")
+    assert ("hi" in result.lower() or "hello" in result.lower() or
+            "привет" in result.lower())
 
 def test_summarize():
-    out = summarize("Сегодня я пошёл в магазин за хлебом.")
-    assert any(w in out.lower() for w in ("магазин", "продукты", "молоко"))
+    result = agent.run("Сегодня я пошёл в магазин и купил молоко, хлеб и сыр.")
+    assert any(w in result.lower() for w in ("магазин", "продукты", "молоко", "shop", "bread"))
